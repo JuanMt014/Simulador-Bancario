@@ -7,9 +7,8 @@ Aplicación web que simula las operaciones básicas de un sistema bancario integ
 - **Cajero automático virtual:** Autenticación mediante número de cuenta y PIN, consulta de saldo, retiros y últimos movimientos.
 
 ## Integrantes
-- [Tu Nombre Completo]
-- [Nombre del Compañero 2]
-- [Nombre del Compañero 3]
+- Juan Montes
+- Santiago Nieto
 
 ## Tecnologías Utilizadas
 - **Backend:** Node.js, Express.js
