@@ -3,6 +3,8 @@ const cors = require('cors');
 const pool = require('./config/database');
 const authRoutes = require('./routes/auth.routes');
 const adminRoutes = require('./routes/admin.routes');
+const clientRoutes = require('./routes/client.routes');
+const atmRoutes = require('./routes/atm.routes');
 
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/cliente', clientRoutes);
+app.use('/api/cajero', atmRoutes);
 
 app.get('/api/health', async (_req, res) => {
   try {

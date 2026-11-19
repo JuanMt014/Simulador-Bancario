@@ -1,4 +1,5 @@
 const pool = require('../config/database');
+const safeRollback = require('../utils/safeRollback');
 
 async function getDashboardMetrics() {
   const [rows] = await pool.execute(
@@ -97,7 +98,7 @@ async function createClient({ client, account }) {
       tipoCuenta: account.tipoCuenta,
     };
   } catch (error) {
-    await connection.rollback();
+    await safeRollback(connection);
     throw error;
   } finally {
     connection.release();
@@ -244,7 +245,7 @@ async function deposit({ numeroCuenta, monto, descripcion }) {
       saldoResultante,
     };
   } catch (error) {
-    await connection.rollback();
+    await safeRollback(connection);
     throw error;
   } finally {
     connection.release();
