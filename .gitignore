@@ -1,9 +1,10 @@
 # Dependencias de Node.js
-node_modules/
+**/node_modules/
 
 # Variables de entorno y credenciales
 .env
-.env.local
+.env.*
+!.env.example
 
 # Archivos del sistema y logs
 .DS_Store

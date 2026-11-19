@@ -8,7 +8,10 @@ const atmRoutes = require('./routes/atm.routes');
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim()).filter(Boolean)
+  : undefined;
+app.use(cors(allowedOrigins ? { origin: allowedOrigins } : {}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
